@@ -1,13 +1,8 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
 
 app.get('/', (req, res) => {
   res.send('Hello Docker + CI/CD!');
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
-
-module.exports = app;
+module.exports = app; // exporte juste l'app, ne démarre pas le serveur ici
