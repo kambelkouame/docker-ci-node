@@ -18,13 +18,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # plus fiable pour CI que npm install
 
-      - name: Lint the code
-        run: npm run lint
+      - name: Run ESLint
+        run: npx eslint .  # utilise npx pour contourner les problèmes de permission
 
       - name: Run unit tests
-        run: npm test
+        run: npm test --detectOpenHandles  # optionnel pour détecter les ressources ouvertes
 
   docker-build:
     runs-on: ubuntu-latest
